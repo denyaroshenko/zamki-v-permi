@@ -1,0 +1,196 @@
+// author: denyaroshenko
+
+// Размеры
+@container-max-width: 1100px;
+@main-menu-height: 65px;
+@screen-size-lg: 1000px;
+@screen-size-md: 768px;
+@screen-size-sm: 480px;
+@header-min-height: 135px;
+
+.border-green
+{
+  border: 1px solid green;
+}
+.border-red
+{
+  border: 1px solid red;
+}
+.border-blue
+{
+  border: 1px solid blue;
+}
+.border-orange
+{
+  border: 1px solid orange;
+}
+
+.border-orange
+{
+  border: 1px solid orange;
+}
+
+.container
+{
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+
+  border: 1px solid orange;
+  @media only screen and (min-width: @screen-size-lg)
+  {
+    max-width: @container-max-width;
+  }
+}
+
+.column
+{
+  display: flex;
+  flex-direction: column;
+  .indents();
+}
+
+.row
+{
+  display: flex;
+  flex-direction: row;
+
+  margin-right: -15px;
+  margin-left: -15px;
+
+  border: 1px solid red;
+
+  flex-wrap: wrap;
+}
+
+// Отступы в блоке
+.indents
+{
+  box-sizing: border-box;
+  padding-right: 15px;
+  padding-left: 15px;
+  // margin-bottom: 30px;
+}
+
+.width(@screen-size, @item-width)
+{
+  @media (min-width: @screen-size)
+  {
+    width: @item-width;
+
+    .indents;
+  }
+}
+
+.col
+{
+  width: 100%;
+
+  .indents();
+  //Занимает всю оставшуюся ширину
+  &-remainder
+  {
+    flex: 1;
+  }
+  &-sm
+  {
+    &-16
+    {
+      .width(@screen-size-sm, 16.66666666666667%);
+    }
+    &-20
+    {
+      .width(@screen-size-sm, 20%);
+    }
+    &-25
+    {
+      .width(@screen-size-sm, 25%);
+    }
+    &-33
+    {
+      .width(@screen-size-sm, 33.33333333333333%);
+    }
+    &-50
+    {
+      .width(@screen-size-sm, 50%);
+    }
+    &-100
+    {
+      .width(@screen-size-sm, 100%);
+    }
+  }
+  &-md
+  {
+    &-16
+    {
+      .width(@screen-size-md, 16.66666666666667%);
+    }
+    &-20
+    {
+      .width(@screen-size-md, 20%);
+    }
+    &-25
+    {
+      .width(@screen-size-md, 25%);
+    }
+    &-33
+    {
+      .width(@screen-size-md, 33.33333333333333%);
+    }
+    &-50
+    {
+      .width(@screen-size-md, 50%);
+    }
+    &-100
+    {
+      .width(@screen-size-md, 100%);
+    }
+  }
+  &-lg
+  {
+    &-16
+    {
+      .width(@screen-size-lg, 16.66666666666667%);
+    }
+    &-20
+    {
+      .width(@screen-size-lg, 20%);
+    }
+    &-25
+    {
+      .width(@screen-size-lg, 25%);
+    }
+    &-33
+    {
+      .width(@screen-size-lg, 33.33333333333333%);
+    }
+    &-50
+    {
+      .width(@screen-size-lg, 50%);
+    }
+    &-100
+    {
+      .width(@screen-size-lg, 100%);
+    }
+  }
+}
+
+.start{
+	justify-content: flex-start;
+}
+
+.center{
+	justify-content: center;
+}
+
+.end{
+	justify-content: flex-end;
+}
+
+.between{
+	justify-content: space-between;
+}
+
+.around{
+	justify-content: space-around;
+}

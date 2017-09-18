@@ -1,0 +1,102 @@
+// Дефолтные цвета
+@color-button-bg-hover: lighten(@color-button-bg, 20);
+@color-button-bg: orange;
+@color-button-border-hover: lighten(@color-button-bg, 20);
+@color-button-border: orange;
+@color-button-text-hover: lighten(@color-button-text, 20);
+@color-button-text: black;
+
+@border-radius: 4px;
+
+.button
+{
+  display: inline-table;
+
+  padding: 10px 15px;
+
+  cursor: pointer;
+  text-decoration: none;
+  transition: .3s;
+  &-default
+  {
+    color: @color-button-text;
+    background: @color-button-bg;
+    &:hover{
+      background: @color-button-bg-hover;
+      color:  @color-button-text-hover;
+    }
+  }
+  // Закругленные углы
+  &-rounded
+  {
+    border-radius: @border-radius;
+    color: #fff;
+    &:hover{
+      color: #fff;
+    }
+  }
+  // Кнопка с рамкой
+  &-border
+  {
+    color: @color-button-text;
+    border: 1px solid @color-button-border;
+    background: transparent;
+    &:hover{
+      background: @color-button-bg-hover;
+      border-color: @color-button-bg-hover;
+      color:  @color-button-text-hover;
+    }
+  }
+  // Кнопка с иконкой слева
+  &-icon
+  {
+    display: flex;
+    flex-direction: row;
+
+    cursor: pointer;
+
+    border: 2px solid #e8e8e8;
+    border-radius: 4px;
+
+    flex-wrap: nowrap;
+    i
+    {
+      display: flex;
+
+      padding: 10px 10px;
+
+      background: #e8e8e8;
+
+      justify-content: center;
+      align-items: center;
+      svg
+      {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    a
+    {
+      font-weight: 500;
+
+      display: flex;
+
+      padding: 10px 10px;
+
+      text-decoration: none;
+
+      color: #000;
+
+      justify-content: center;
+      align-items: center;
+    }
+    &:hover
+    {
+      border: 2px solid #ffe400;
+      i
+      {
+        background: #ffe400;
+      }
+    }
+  }
+}

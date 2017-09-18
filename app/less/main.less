@@ -1,0 +1,455 @@
+@import url('normalize.css'); // Нормализуем браузер
+@import url('setting.css'); // Импортируем настройки
+@import url('grid.less'); // Подключаем сетку
+@import url('buttons.less');
+@import url('_config.less');
+
+// Шрифты
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic');
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 100;
+    font-style: normal;
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Thin.otf') format('opentype');
+}
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 300;
+    font-style: normal;
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Light.otf') format('opentype');
+}
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 400;
+    font-style: normal;
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Regular.otf') format('opentype');
+}
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 500;
+    font-style: normal;
+
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Medium.otf') format('opentype');
+}
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 700;
+    font-style: normal;
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Bold.otf') format('opentype');
+}
+
+@font-face
+{
+    font-family: 'ProximaNova';
+    font-weight: 900;
+    font-style: normal;
+    src: url('@{path_fonts}/ProximaNova/ProximaNova-Black.otf') format('opentype');
+}
+
+@font-main: 'ProximaNova', sans-serif;
+
+
+// Цвета
+@color-main: #9e9fff;
+@color-gray-border: #e9e9e9;
+@red: 1px solid red;
+@green: 1px solid green;
+
+// Размеры
+@container-max-width: 1100px;
+@main-menu-height: 65px;
+@screen-size-lg: 1000px;
+@screen-size-md: 768px;
+@screen-size-sm: 480px;
+@header-min-height: 135px;
+
+// Кнопки
+@color-button-bg: @color-main;
+@color-button-bg-hover: lighten(@color-button-bg, 5);
+@color-button-text: #fff;
+
+
+.clearfix::after
+{
+    display: table;
+    clear: both;
+
+    content: '';
+}
+
+.hidden
+{
+    display: none;
+}
+
+a
+{
+  cursor: pointer;
+  text-decoration: none;
+
+  color: @color-main;
+  &:hover,
+  &:visited
+  {
+    color: inherit;
+  }
+}
+
+p{
+  font-size: 16px;
+  line-height: normal;
+  text-align: left;
+}
+
+h2
+{
+  font-weight: 400;
+  overflow: hidden;
+
+  text-transform: uppercase;
+  &:before
+  {
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 3px;
+
+    content: '';
+    vertical-align: middle;
+
+    border: solid #fff;
+    border-width: 0 10px;
+    background: @color-main;
+    margin-left: -95%;
+  }
+  span{
+    color: @color-main;
+  }
+}
+
+
+
+ul{
+  margin: 0;
+  &.column-count{
+    &-2{
+      column-count: 2;
+    }
+    &-3{
+      column-count: 3;
+    }
+    &-4{
+      column-count: 4;
+    }
+    &-5{
+      column-count: 5;
+    }
+  }
+}
+
+img
+{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body
+{
+    font-family: @font-main;
+    font-weight: 100;
+
+    position: relative;
+
+    margin: 0;
+    // opacity: .5;
+    // background: url('http://tehas2.bobrick.ru/templates/tehass/resource/img/maket/maket-yelow.jpg') top center no-repeat;
+}
+
+.header
+{
+  &__logo{
+    background: url('@{path_images}/logo.png') center center no-repeat, @color-main;
+    height: 130px;
+    width: 130px;
+
+    img{
+      width: 100%;
+    }
+  }
+  &__callback{
+    background: url('@{path_images}/call-arrow.png') left center no-repeat;
+    background-size: 20px;
+    padding-left: 30px;
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: underline;
+  }
+  &__right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__info
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .button
+    {
+      font-size: 16px;
+      margin-top: 10px;
+
+      padding: 10px 22px;
+    }
+  }
+}
+
+.phone
+{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 58px;
+
+  margin-top: -10px;
+  padding-left: 28px;
+  white-space: nowrap;
+  letter-spacing: -.7px;
+
+  color: #000;
+  background: url('@{path_images}/phone.png') left center no-repeat;
+  background-size: 17px;
+  &__subtitle{
+    color: #b6b6b6;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+    margin-top: -15px;
+  }
+}
+
+
+
+
+.main-nav
+{
+  margin-right: 15px;
+  margin-left: 15px;
+  z-index: 999;
+
+  width: 100%;
+
+  background: #fff;
+  box-shadow: 0 0 7px rgba(0,0,0,.17);
+  &__wrapper{
+    border: 1px solid @color-gray-border;
+  }
+  &__mobile
+  {
+    display: none;
+  }
+  &__list
+  {
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .menu-item
+  {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #000;
+    border-top: 4px solid rgba(0,0,0,0);
+    a
+    {
+      display: block;
+
+      margin: 13px 30px;
+    }
+    &:hover
+    {
+      color: @color-main;
+      border-top: 4px solid @color-main;
+    }
+  }
+}
+
+.current-menu-item
+{
+  color: @color-main;
+  border-bottom: 4px solid @color-main;
+}
+
+.banner
+{
+  &__item
+  {
+    &-info
+    {
+      display: flex;
+      flex-direction: column;
+
+      height: 700px;
+
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+  &__header
+  {
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 50px;
+    text-transform: uppercase;
+
+    width: 100%;
+
+    color: #fff;
+    padding-bottom: 25px;
+    b{
+      color: @color-main;
+      border-bottom: 2px solid @color-main;
+      padding-bottom: 10px;
+    }
+  }
+  &__caption{
+    color: #fff;
+  }
+  &__btn
+  {
+    margin-top: 30px;
+  }
+}
+
+.advantages
+{
+  &__item
+  {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+  &__title
+  {
+    font-size: 16px;
+    font-weight: 700;
+
+    text-align: center;
+
+    color: #000;
+    text-transform: uppercase;
+    &:after
+    {
+      display: block;
+
+      width: 50px;
+      margin: 0 auto;
+      margin-top: 5px;
+
+      content: '';
+
+      border-bottom: 1px solid @color-main;
+    }
+  }
+  &__description
+  {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+
+    text-align: center;
+    p{
+      line-height: 30px;
+    }
+  }
+}
+
+.services
+{
+  &__item{
+    border-bottom: 3px solid @color-gray-border;
+    height: 350px;
+    margin-bottom: 20px;
+    &:hover{
+      border-bottom: 3px solid @color-main;
+    }
+  }
+  &__title
+  {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 10px;
+
+  }
+  &__description{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+}
+
+.call-block{
+  position: relative;
+  background: url('@{path_images}/call-block-bg.png') center center no-repeat;
+  height: 260px;
+  &__content{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 50px;
+    border-left: 1px solid #fff;
+    background: url('@{path_images}/trangle.png')
+  }
+  &__header{
+    font-size: 24px;
+  }
+  .phone{
+    color: #fff;
+    display: block;
+    line-height: 40px;
+    font-size: 18px;
+  }
+  &__side{
+    margin-left: 20px;
+  }
+  &__img{
+        position: absolute;
+    top: 60px;
+    right: ~'calc(50% - 420px)';
+  }
+}
+
+// Квадратный div
+.block-1x1{
+  width: 130px;
+  border: 1px solid red;
+  overflow: hidden;
+  &:before{
+    content: '';
+    padding-top: 100%;
+    float: left;
+  }
+}
